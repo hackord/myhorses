@@ -1,0 +1,12 @@
+/.idea
+/bower_components
+/node_modules
+/public/storage
+/vendor
+/storage
+
+.env
+composer.lock
+
+Homestead.yaml
+Homestead.json
