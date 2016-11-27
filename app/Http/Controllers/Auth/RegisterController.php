@@ -7,6 +7,10 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+ * Class RegisterController
+ * @package %%NAMESPACE%%\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*
@@ -21,6 +25,16 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('adminlte::auth.register');
+    }
 
     /**
      * Where to redirect users after login / registration.
@@ -48,9 +62,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'document' => 'required|max:255',
+            'mobile' => 'required|max:255',
+            'user' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'status' => 'required|max:255',
+            'terms' => 'required',
         ]);
     }
 
@@ -63,9 +83,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'document' => $data['document'],
+            'mobile' => $data['mobile'],
+            'user' => $data['user'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'added_user_id' => $data['added_user_id'],
+            'status' => $data['status'],
         ]);
     }
 }

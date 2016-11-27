@@ -178,6 +178,20 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Package LaravelCollective
+         */
+
+        Collective\Html\HtmlServiceProvider::class,
+        /*
+        * Acacha AdminLTE template provider
+        */
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+
+        /*
+         * Roles and Permissions Klaravel Ntrust
+         */
+        Klaravel\Ntrust\NtrustServiceProvider::class,
     ],
 
     /*
@@ -225,6 +239,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Ntrust' => Klaravel\Ntrust\NtrustFacade::class,
 
     ],
 
